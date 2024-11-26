@@ -1,0 +1,27 @@
+name: Architectural Work
+images: [
+  {
+    image: ../../images/cnc_router_1.jpg,
+    imageAlt: CNC Router
+  },
+  {
+    image: ../../images/pressbrake_1.jpg,
+    imageAlt: Press Brake
+  },
+  {
+    image: ../../images/tube_bender_1.jpg,
+    imageAlt: Tube Bender
+  },
+  {
+    image: ../../images/waterjet_1.jpg,
+    imageAlt: Waterjet
+  },
+  {
+    image: ../../images/welding_1.jpg,
+    imageAlt: Welding Equipment
+  },
+  {
+    image: ../../images/welding.jpg,
+    imageAlt: Welding
+  }
+]

@@ -3,6 +3,7 @@ image: "../../images/exergi_featured.jpg"
 imageAltText: "Image of an Electric UTV"
 title: "Hybrid Electric UTV"
 category: "Projects"
+tags: [Engineering]
 slug: "exergi-utv"
 ---
 

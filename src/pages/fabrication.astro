@@ -1,0 +1,71 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import Cta from "../components/Cta.astro";
+import Gallery from "../components/Gallery.astro";
+import ProjectsGallery from "../components/ProjectsGallery.astro";
+import { getCollection } from "astro:content";
+
+const projects = await getCollection("projects", ({ data }) => {
+  return data.tags?.includes("Fabrication") && data.featured
+})
+---
+
+<Layout title="Fabrication">
+  <SectionTitle title="Fabrication" />
+  <div class="text-content-container">
+    <p>
+      JKV is well-equipped to handle one-off to low volume custom fabrication
+      work.
+    </p>
+    <p>
+      From design support to delivery or installation, we take pride in
+      excellent customer service and high quality of work.
+    </p>
+    <h1 id="residential-commercial-or-industrial-buildings">
+      Architectural Work and Outdoor Installations
+    </h1>
+    <ul>
+      <li>Staircases and railing</li>
+      <li>Walkways, platforms</li>
+      <li>Various structural elements</li>
+      <li>Metal signs (with or without integrated lighting)</li>
+      <li>EV chargers</li>
+      <li>Furniture (table, shelving, partition, etc.)</li>
+      <li>Decorative elements</li>
+    </ul>
+    <Gallery albumId="architectural" />
+    <h1 id="vehicle-modifications">Vehicle Modifications</h1>
+    <ul>
+      <li>Commercial van upfitting</li>
+      <li>Custom commercial truck modifications</li>
+    </ul>
+    <Gallery albumId="vehicle-upfit" />
+    <h1 id="equipment">Our Equipment and Capabilities</h1>
+    <ul>
+      <li>
+        CNC Waterjet cutting on our Flow Mach IV (5’x8’ capacity) - Steel,
+        Stainless Steel, Aluminum, Plastics, Composites, Stone, etc.
+      </li>
+      <li>
+        CNC machining on 2 routers (wood, plastic, composites, and aluminum)
+      </li>
+      <li>
+        CNC Press-Brake Sheetmetal Bending (up to 10’ length and 1/2” thickness)
+      </li>
+      <li>
+        CNC Tube Bending (0.5” to 2.0” steel tubing up to schedule 40 wall
+        thickness)
+      </li>
+      <li>Welding (TIG, AC/DC-Pulse MIG, Stick)</li>
+    </ul>
+    <Gallery albumId="equipment" />
+    
+    <h1 id="recent-projects">Featured Projects</h1>
+    <ProjectsGallery projects={projects} />
+    <div class="btn-wrapper">
+    <a class="btn btn-yellow btn-md" href="/projects#fabrication">View All Projects</a>
+    </div>
+  </div>
+  <Cta />
+</Layout>

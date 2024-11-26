@@ -1,0 +1,82 @@
+---
+import { Image } from "astro:assets";
+import { getCollection, type CollectionEntry } from "astro:content";
+
+const teamMembers: CollectionEntry<"team">[] = await getCollection("team");
+teamMembers.sort((a, b) => a.data.order - b.data.order);
+---
+
+<>
+  {
+    teamMembers.map((member) => {
+      const { name, position, image, imageAltText } = member.data;
+      return (
+        <div class="team-member-container">
+          <div class="portrait">
+            <Image src={image} alt={imageAltText} />
+          </div>
+          <div class="name">
+            <h1>{name}</h1>
+            <p class="position">{position}</p>
+          </div>
+          <div class="bio">
+            <p>{member.body}</p>
+          </div>
+        </div>
+      );
+    })
+  }
+</>
+
+<style>
+  .team-member-container {
+    max-width: var(--width-text-content);
+    margin: var(--space-2xl) auto;
+    padding: var(--space-2xl);
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-template-areas: "portrait name" 
+                          "bio bio";
+    gap: var(--space-2xl);
+    box-shadow: var(--box-shadow);
+  }
+  .portrait {
+    margin: auto;
+    grid-area: portrait;
+  }
+  .name {
+    grid-area: name;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .bio {
+    grid-area: bio;
+  }
+  .bio p {
+    margin: 0;
+  }
+  h1 {
+    font-family: var(--font-heading);
+    font-size: var(--text-3xl);
+    margin: var(--space-sm) 0;
+  }
+  .position {
+    margin: var(--space-sm) 0 var(--space-md) 0;
+    font-style: italic;
+    color: var(--text-color-secondary);
+  }
+  img {
+    object-fit: cover;
+    width: 200px;
+    height: 250px;
+    margin: 0;
+  }
+  @media screen and (max-width: 768px) {
+    .team-member-container {
+      grid-template-columns: 1fr;
+      grid-template-areas: "portrait" "name" "bio";
+      margin: var(--space-2xl) var(--space-sm);
+    }
+  }
+</style>

@@ -1,0 +1,107 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Services from "../components/Services.astro";
+import Fabrication from "../components/Fabrication.astro";
+import Engineering from "../components/Engineering.astro";
+import Cta from "../components/Cta.astro";
+import bannerImage from "../images/banner.jpg";
+import { Image } from "astro:assets";
+---
+
+<Layout title="HOME">
+  <section class="banner radial-gradient-dark">
+    <div class="banner-image-container">
+      <Image src={bannerImage} alt="Team Photo" />
+    </div>
+    <div class="banner-text-overlay">
+      <h1>
+        Highest quality results<br />No matter how simple or complex the project
+      </h1>
+      <a href="/contact" class="btn btn-transparent-light">Request a Quote</a>
+    </div>
+  </section>
+  <Services />
+  <Fabrication />
+  <Engineering />
+  <Cta />
+</Layout>
+
+<style>
+  .banner {
+    height: 400px;
+    color: var(--font-color-light);
+    overflow: hidden;
+    position: relative;
+  }
+  .banner h1 {
+    font-family: var(--font-heading);
+    font-weight: var(--bolder);
+    font-size: var(--text-3xl);
+  }
+  .banner-image-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 400px;
+  }
+  .banner-image-container img {
+    margin: 0;
+    width: 100vw;
+    height: auto;
+    object-fit: none;
+  }
+  .banner-text-overlay {
+    height: 100%;
+    max-width: var(--width-wide-content);
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: var(--space-3xl);
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    text-shadow: var(--text-shadow);
+    font-family: var(--font-heading); 
+  }
+  .banner-text-overlay .btn {
+    max-width: 300px;
+  }
+  .main-content {
+    max-width: var(--width-main-content);
+    margin: var(--space-3xl) auto;
+  }
+  .cta {
+    color: var(--font-color-light);
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    max-width: var(--width-main-content);
+    margin: var(--space-3xl) auto;
+    padding: var(--space-3xl);
+    border-radius: var(--radius-md);
+    align-items: center;
+    gap: var(--space-3xl);
+  }
+  .cta-message {
+    font-size: var(--text-2xl);
+    font-family: var(--font-heading);
+  }
+  .btn-cta {
+    height: fit-content;
+  }
+  @media screen and (max-width: 768px) {
+    .banner {
+      border-radius: var(--radius-md);
+    }
+    .banner-image-container img {
+      width: auto;
+      height: 400px;
+    }
+  }
+  @media screen and (max-width: 432px) {
+    .banner {
+      height: 500px;
+    }
+  }
+</style>

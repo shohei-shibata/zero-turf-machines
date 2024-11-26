@@ -1,0 +1,77 @@
+---
+const services = [
+  {
+    title: "Design",
+    text: "CAD, CAE Analysis, BoM, Drawing Packages, Electrical Schematics, Software Programming",
+  },
+  {
+    title: "Build",
+    text: "Waterjet, Press Brake, Tube Bender, TIG/MIG/Stick Welding, CNC Machining and more",
+  },
+  {
+    title: "Deliver",
+    text: "Assembly, testing, and installation services to suit your requirements",
+  },
+];
+---
+
+<section class="main-content">
+  <h1 class="center-text">
+    Engineering and fabrication services to fit your needs.
+  </h1>
+  <div class="services">
+    {
+      services.map((item) => (
+        <div class="service-item linear-gradient-yellow">
+          <div class="service-item-inner">
+            <h2>{item.title}</h2>
+            <p>{item.text}</p>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .services {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2xl);
+    justify-content: center;
+    padding: var(--space-xl) 0;
+  }
+  .service-item {
+    width: 250px;
+    height: 300px;
+    border-radius: var(--radius-md);
+    box-shadow: var(--box-shadow);
+  }
+  .service-item h2 {
+    font-size: var(--text-2xl);
+  }
+  .service-item p {
+    font-size: var(--text-xl);
+  }
+  .service-item-inner {
+    color: var(--font-color-dark);
+    width: 246px;
+    height: 296px;
+    margin: 2px auto;
+    padding: var(--space-xl);
+    background-color: var(--background-color-light);
+    border-radius: 5px;
+    transition: background-color 0.125s ease-in;
+  }
+  .service-item-inner:hover {
+    background-color: #ffffffcc;
+  }
+  @media screen and (max-width: 768px) {
+   .service-item {
+    width: 80vw;
+   } 
+   .service-item-inner {
+    width: calc(80vw - 4px);
+   }
+  }
+</style>

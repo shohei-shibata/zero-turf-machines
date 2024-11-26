@@ -1,0 +1,15 @@
+name: Handrail
+images: [
+  {
+    image: ../../images/railing.jpg,
+    imageAlt: Handrail being welded
+  },
+  {
+    image: ../../images/railing_2.jpg,
+    imageAlt: Handrail being welded
+  },
+  {
+    image: ../../images/railing_3.jpg,
+    imageAlt: Welded handrail
+  },
+]

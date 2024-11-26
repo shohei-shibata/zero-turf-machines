@@ -1,0 +1,23 @@
+---
+const { title } = Astro.props
+---
+
+<h1 id="fabrication" class="section-title">{title}</h1>
+<hr class="section-title-hr" />
+
+<style>
+  .section-title {
+    display: block;
+    text-transform: uppercase;
+    font-family: var(--font-heading);
+    font-size: calc(24px + 0.7vw);
+    font-weight: var(--bold);
+    margin: var(--space-3xl) 0 var(--space-xl) 0;
+    text-align: center;
+  }
+  .section-title-hr {
+    width: 250px;
+    border: 1.5px solid var(--yellow);
+    margin-bottom: 3em;
+  }
+</style>

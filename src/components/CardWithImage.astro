@@ -1,0 +1,61 @@
+---
+import { Image } from "astro:assets";
+
+const { item } = Astro.props;
+---
+
+<div class="item">
+  <div class="item-image">
+    <Image src={item.data.cover} alt={item.data.coverAltText} />
+  </div>
+  <div class="item-text">
+    <h2>{item.data.name}</h2>
+    <p>{item.body}</p>
+  </div>
+</div>
+
+<style>
+  .item {
+    width: 250px;
+    border-radius: var(--radius-md);
+    box-shadow: var(--box-shadow);
+    padding: var(--space-xl);
+    border: solid 2px var(--white);
+    box-sizing: border-box;
+    transition: border 0.125s ease-in;
+  }
+  .item:hover {
+    border: solid 2px var(--yellow);
+    cursor: default;
+  }
+  .item h2 {
+    font-size: var(--text-2xl);
+  }
+  .item p {
+    font-size: var(--text-xl);
+  }
+  .item-image {
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+  }
+  .item-image img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    margin: 0;
+  }
+  .item-text h2 {
+    margin: var(--space-lg) 0 var(--space-md) 0;
+  }
+  .item-text p {
+    margin: var(--space-sm) 0 0 0;
+  }
+  @media screen and (max-width: 500px) {
+   .item {
+    width: 80vw;
+   } 
+   .item-image img {
+    height: 250px;
+   }
+  }
+</style>

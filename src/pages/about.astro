@@ -1,0 +1,17 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Team from "../components/Team.astro";
+import AboutText from "../content/pages/about.md";
+import SectionTitle from "../components/SectionTitle.astro";
+import Cta from "../components/Cta.astro";
+---
+
+<Layout title="About">
+  <SectionTitle title="About JKV" />
+  <div class="text-content-container">
+    <AboutText />
+  </div>
+  <SectionTitle title="Our Team" />
+  <Team />
+  <Cta />
+</Layout>

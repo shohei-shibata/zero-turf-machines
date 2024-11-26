@@ -1,0 +1,22 @@
+---
+import SectionTitle from "../components/SectionTitle.astro";
+import Layout from "./Layout.astro";
+import Cta from "../components/Cta.astro";
+
+const { title } = Astro.props;
+---
+
+<Layout title={title}>
+  <div class="markdown-content-wrapper">
+    <SectionTitle title={title} />
+    <slot/>
+  </div>
+  <Cta />
+</Layout>
+
+<style>
+  .markdown-content-wrapper {
+    max-width: var(--width-text-content);
+    margin: auto;
+  }
+</style>

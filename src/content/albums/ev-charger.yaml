@@ -1,0 +1,15 @@
+name: EV Charger
+images: [
+  {
+    image: ../../images/ev-charger_1.jpg,
+    imageAlt: Pedestals before paint
+  },
+  {
+    image: ../../images/ev-charger_3.jpg,
+    imageAlt: Install in progress
+  },
+  {
+    image: ../../images/ev-charger_2.jpg,
+    imageAlt: Install complete
+  },
+]

@@ -3,17 +3,6 @@
   src: url(/fonts/Blinker-Regular.ttf) format(truetype);
 }
 
-:root {
-  --yellow: #DCAB4E;
-  --font-color-light: #fff;
-  --font-color-dark: #222;
-  --font-color-gray: #444;
-  --background-color-light: #fff;
-  --background-color-dark: #222;
-  --background-color-yellow: #DCAB4E;
-  --background-dark-shadow: rgba(0, 0, 0, 0.1) 0px 0px 125px 100px inset;
-  --mobile-trigger-width: 768px;
-}
 html, body {
   margin: 0;
   padding: 0;
@@ -22,10 +11,46 @@ html, body {
 main {
   margin: 0;
 }
+.main-content {
+  max-width: var(--width-main-content);
+  margin: var(--space-3xl) auto;
+  padding-top: var(--space-lg);
+}
+img {
+  margin: var(--space-xl) 0;
+}
+.text-content-container {
+  max-width: var(--width-text-content);
+  margin: auto;
+}
+.center-text {
+  text-align: center;
+}
+.radial-gradient-dark {
+  background-size: 100% 100%;
+  background-position: 0px 0px,0px 0px,0px 0px,0px 0px,0px 0px;
+  background-image: radial-gradient(49% 81% at 45% 47%, #2C1B6B45 0%, #623CEA00 100%),radial-gradient(113% 91% at 17% -2%, #080C0BFF 1%, #FF000000 99%),radial-gradient(142% 91% at 83% 7%, #080C0BFF 1%, #FF000000 99%),radial-gradient(142% 91% at -6% 74%, #080C0BFF 0%, #FF000000 99%),radial-gradient(142% 91% at 111% 84%, #080C0BFF 0%, #080C0BFF 100%);
+}
+.radial-gradient-yellow {
+  background-size: 100% 100%;
+  background-position: 0px 0px,0px 0px,0px 0px,0px 0px,0px 0px;
+  background-image: radial-gradient(49% 81% at 45% 47%, #dcab4e45 1%, #623CEA00 100%), radial-gradient(113% 91% at 17% -2%, #dcab4eFF 1%, #FF000000 99%), radial-gradient(142% 91% at 83% 7%, #dcab4eFF 1%, #FF000000 99%), radial-gradient(142% 91% at -6% 74%, #dcab4eFF 0%, #FF000000 99%), radial-gradient(142% 91% at 111% 84%, #dcab4eFF 0%, #dcab4eFF 100%);
+}
+.linear-gradient-yellow {
+  background: rgb(220,171,78);
+  background: linear-gradient(5deg, rgba(220,171,78,0.4618579853816527) 0%, rgba(220,171,78,1) 68%, rgba(220,171,78,1) 100%); 
+}
 @media screen and (max-width: 768px) {
   main {
     margin-top: 0;
+  } 
+  .main-content {
+    margin: var(--space-3xl) auto;
+    padding-top: 0
   }
+}
+h1, h2, h3 {
+  margin-top: var(--space-2xl);
 }
 h1 {
   font-size: calc(16px + .7vw);
@@ -66,6 +91,13 @@ figcaption {
   font-family: Blinker;
   font-size: calc(24px + 0.7vw);
 }
+.boxed-text {
+  font-weight: bold;
+  padding: var(--space-xl) var(--space-3xl);
+  border-radius: var(--radius-md);
+  background: #CBC8CA;
+  background: linear-gradient(135deg, #DBE0DFcc, #DBE0DFdd);
+}
 .btn {
   background-color: var(--background-color-light);
   border: none;
@@ -91,9 +123,22 @@ a.btn {
 a.btn-yellow {
   color: var(--font-color-light);
 }
+a.btn.btn-transparent-light {
+  background-color: transparent;
+  border: solid 3px var(--font-color-light);
+  color: var(--font-color-light);
+  box-shadow: none;
+  transition: background-color 0.075s ease-in
+}
+a.btn.btn-transparent-light:hover {
+  background-color: #DBE0DF33;
+}
 .btn:hover {
   opacity: 0.9;
   cursor: pointer;
+}
+.btn-md {
+  max-width: var(--btn-width-md);
 }
 .btn-wrapper {
   margin: 30px 0;
@@ -112,6 +157,10 @@ a.btn-yellow {
   background-color: var(--background-color-dark);
   box-shadow: var(--background-dark-shadow);
   color: var(--font-color-light);
+}
+.section-light-grey { 
+  background-color: var(--background-color-light-grey);
+  color: var(--font-color-dark);
 }
 .section-light { 
   background-color: var(--background-color-light);
@@ -133,6 +182,9 @@ a.btn-yellow {
   margin: 15px 0;
 }
 @media screen and (max-width: 768px) {
+  main {
+    padding: 0 var(--space-md);
+  }
   .contact-row-1-container {
     display: flex;
     flex-direction: column;
@@ -179,6 +231,7 @@ a.btn-yellow {
 }
 .youtube-embed-container iframe {
   max-width: 100%;
+  margin: auto;
 }
 .youtube-embed-container .caption {
   text-align: center;

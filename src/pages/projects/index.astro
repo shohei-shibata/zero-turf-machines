@@ -1,0 +1,79 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import SectionTitle from "../../components/SectionTitle.astro";
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import ProjectsGallery from "../../components/ProjectsGallery.astro";
+
+const projects: CollectionEntry<"projects">[] = await getCollection("projects");
+const engineeringProjects = projects.filter((p) => {
+  return p.data.tags?.includes("Engineering");
+});
+const fabricationProjects = projects.filter((p) => {
+  return p.data.tags?.includes("Fabrication");
+});
+---
+
+<Layout title="Projects">
+  <SectionTitle title="Project Examples" />
+  <div class="main-content">
+    <h2 id="fabrication">Fabrication</h2>
+    <ProjectsGallery projects={fabricationProjects} />
+    <h2 id="engineering">Engineering</h2>
+    <ProjectsGallery projects={engineeringProjects} />
+  </div>
+</Layout>
+
+<style>
+  .project-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2xl);
+    max-width: var(--width-main-content);
+    align-items: center;
+    justify-content: center;
+  }
+  .project-card {
+    list-style-type: none;
+  }
+  .project-card a {
+    display: block;
+    position: relative;
+    width: 250px;
+    height: 250px;
+    text-decoration: none;
+    color: var(--font-color-light);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+  }
+  .project-card-image-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .project-card-image-container img {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .project-card-text-overlay {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-shadow: var(--text-shadow);
+    font-family: var(--font-heading);
+    font-size: var(--text-2xl);
+    text-align: center;
+    background-color: #00000055;
+  }
+  .project-card-text-overlay:hover {
+    background-color: #00000077;
+  }
+</style>

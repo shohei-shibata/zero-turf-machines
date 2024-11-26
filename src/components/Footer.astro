@@ -1,0 +1,184 @@
+---
+import { Icon } from "astro-icon/components";
+import GoogleMap from "./GoogleMap.astro";
+const currentYear = new Date().getFullYear();
+
+const links = [
+  {
+    name: "Home",
+    url: "/",
+    external: false,
+  },
+  {
+    name: "About",
+    url: "/about",
+    external: false,
+  },
+  {
+    name: "Fabrication",
+    url: "/fabrication",
+    external: false,
+  },
+  {
+    name: "Engineering",
+    url: "/engineering",
+    external: false,
+  },
+  {
+    name: "Contact Us",
+    url: "/contact",
+    external: false,
+  },
+  {
+    name: "JKV Shop",
+    url: "https://shop.jkvengineering.com",
+    external: true,
+  },
+];
+---
+
+<footer>
+  <div class="footer-content-wrapper">
+    <div class="find-us">
+      <div class="address">
+        <p class="footer-logo"><Icon name="logo-inverse" /></p>
+        <p>789 US Route 50</p>
+        <p>Milford, OH 45150</p>
+      </div>
+      <div class="contact-form-link">
+        <a class="btn btn-yellow" href="/contact">Send Us A Message</a>
+      </div>
+      <div class="map">
+        <GoogleMap />
+      </div>
+    </div>
+    <div class="footer-links">
+      <ul class="internal-links">
+        {
+          links.map((link) => (
+            <li>
+              <a href={link.url}>
+                {link.name}
+                {link.external && <Icon name="external-link" />}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+      <ul class="social-links">
+        <li>
+          <a href="https://www.facebook.com/JKVEngineering" target="_blank"
+            ><Icon name="facebook" /></a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.linkedin.com/company/jkv-engineering-corp/"
+            target="_blank"><Icon name="linkedin" /></a
+          >
+        </li>
+      </ul>
+      <div class="credits">© JKV Engineering {currentYear}</div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  :root {
+    --logo-width: 250px;
+  }
+  footer {
+    background-color: var(--background-color-dark);
+    color: var(--font-color-light);
+  }
+  .footer-content-wrapper {
+    max-width: var(--width-wide-content);
+    margin: auto;
+    padding: var(--space-2xl) 0;
+  }
+  .footer-logo svg {
+    width: 100%;
+    max-width: var(--logo-width);
+    height: auto;
+    margin: var(--space-xl) auto;
+  }
+  .find-us {
+    margin: var(--space-3xl) auto;
+    display: grid;
+    grid-template-columns: var(--logo-width) 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "address map" "btn map";
+    gap: 100px;
+    padding: 0 var(--space-2xl);
+  }
+  .address {
+    grid-area: address;
+  }
+  .contact-form-link {
+    grid-area: btn;
+  }
+  .contact-form-link a {
+    text-align: center;
+  }
+  .map {
+    grid-area: map;
+  }
+
+  .address p {
+    margin: var(--space-sm) 0;
+    text-align: center;
+  }
+  footer ul {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    align-items: baseline;
+    margin: var(--space-lg) 0;
+  }
+  footer a {
+    color: var(--font-color-light);
+  }
+  .footer-links {
+    margin: 10px 0 20px 0;
+  }
+  .footer-links li {
+    list-style-type: none;
+  }
+  .footer-links ul {
+    padding: 0;
+  }
+  .footer-links a {
+    text-decoration: none;
+  }
+  .footer-links a:hover {
+    text-decoration: underline;
+  }
+  .internal-links a {
+    display: flex;
+    gap: var(--space-md);
+    align-items: baseline;
+  }
+  .social-links svg {
+    font-size: var(--text-2xl);
+    opacity: 0.8;
+  }
+  .social-links svg:hover {
+    opacity: 1;
+  }
+  .credits {
+    display: flex;
+    justify-content: center;
+  }
+  @media screen and (max-width: 768px) {
+    .find-us {
+      grid-template-columns: 1fr;
+      grid-template-areas: "address" "btn" "map";
+      gap: 0;
+    }
+    .contact-form-link {
+      max-width: var(--logo-width);
+      margin: auto;
+    }
+  }
+</style>

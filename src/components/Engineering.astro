@@ -1,0 +1,57 @@
+---
+import SectionTitle from "./SectionTitle.astro";
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import CardWithImage from "./CardWithImage.astro";
+
+const fabricationServices: CollectionEntry<"capabilities">[] =
+  await getCollection("capabilities", ({data}) => data.category === "Engineering");
+fabricationServices.sort((a, b) => a.data.order - b.data.order);
+
+const props= Astro.props;
+---
+
+<section class={["main-content", props.class].join(" ")}>
+  <SectionTitle title="Engineering Services" />
+  <div class="services">
+    <p class="text">
+      Experts in electrical drive systems and alternative energy, JKV has
+      designed and built fully-functional systems from the ground up.
+    </p>
+    <div class="service-item-container">
+      {
+        fabricationServices.map((item) => (
+          <CardWithImage item={item} />
+        ))
+      }
+    </div>
+    <a class="btn btn-yellow" href="/engineering">To Engineerng Services</a>
+  </div>
+</section>
+
+<style>
+  .services {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2xl);
+  }
+  .service-item-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    gap: var(--space-2xl);
+    justify-content: center;
+    padding: var(--space-xl) 0;
+  }
+  .text {
+    max-width: var(--width-text-content);
+    margin: auto;
+    font-size: var(--text-xl);
+  }
+  @media screen and (max-width: 768px) {
+    .text {
+      margin: 0 var(--space-2xl);
+    }
+  }
+</style>

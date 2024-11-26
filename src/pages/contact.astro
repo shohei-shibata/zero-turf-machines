@@ -1,0 +1,27 @@
+---
+import ContactForm from "../components/ContactForm.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Contact">
+  <SectionTitle title="Contact Us" />
+  <div class="main-content">
+    <p class="center-text">
+      Tell us a little bit about your project, and we will reach back out to you as soon as we can! 
+    </p>
+    <div class="contact-form-container">
+      <ContactForm />
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .contact-form-container {
+    max-width: var(--width-main-content);
+    margin: var(--space-3xl) auto;
+    background-color: var(--background-white);
+    box-shadow: var(--box-shadow);
+    padding: var(--space-2xl);
+  }
+</style>

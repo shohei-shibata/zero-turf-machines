@@ -1,0 +1,45 @@
+---
+import type { CollectionEntry } from "astro:content";
+import MarkdownPage from "../../layouts/MarkdownPage.astro";
+import { getCollection } from "astro:content";
+import { getFullDateString } from "../../utils/time.js"
+import { Image } from "astro:assets";
+import Gallery from "../../components/Gallery.astro";
+
+export async function getStaticPaths() {
+  const projects = await getCollection("projects");
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+
+const project: CollectionEntry<"projects"> = Astro.props.project;
+const { Content } = await project.render();
+
+const { publishDate, image, imageAltText, title, album } = project.data;
+const dateString = publishDate && getFullDateString(publishDate);
+---
+
+<MarkdownPage title={title}>
+  <Image class="featured-image" src={image} alt={imageAltText} />
+  <p class="published-date">{dateString}</p>
+  <Content />
+  { album && <h2>Project Gallery</h2> <Gallery albumId={album.id}/>}
+  <div class="btn-wrapper">
+    <a class="btn btn-yellow btn-md" href="/projects#engineering"
+      >View All Projects</a
+    >
+  </div>
+</MarkdownPage>
+
+<style>
+  .published-date {
+    color: var(--font-color-grey);
+  }
+  .featured-image {
+    width: auto;
+    max-height: 40vh;
+    margin: 0 auto var(--space-3xl) auto;
+  }
+</style>

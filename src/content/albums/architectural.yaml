@@ -1,0 +1,27 @@
+name: Architectural Work
+images: [
+  {
+    image: ../../images/bicycle_art.jpg,
+    imageAlt: Bicycle art piece
+  },
+  {
+    image: ../../images/butcher_block.jpg,
+    imageAlt: LED-lit sign for a restaurant
+  },
+  {
+    image: ../../images/ev-charger_2.jpg,
+    imageAlt: EV Charger
+  },
+  {
+    image: ../../images/front_entrance.jpg,
+    imageAlt: Ourdoor staircase
+  },
+  {
+    image: ../../images/pumpkinville.jpg,
+    imageAlt: Outdoor sign installation
+  },
+  {
+    image: ../../images/railing.jpg,
+    imageAlt: Commercial handrail
+  },
+]

@@ -1,0 +1,61 @@
+---
+import { getEntry } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import { Image } from "astro:assets";
+
+type Image = {
+  image: ImageMetadata;
+  imageAlt: string;
+};
+
+const { albumId } = Astro.props;
+
+const album: CollectionEntry<"albums"> = await getEntry(
+  "albums",
+  albumId
+);
+---
+
+<div class="wrapper">
+  <ul class="gallery">
+    {
+      album.data.images.map((item: Image) => {
+        return (
+          <li class="gallery-image-container">
+            <a href={item.image.src} target="_blank">
+              <Image src={item.image} alt={item.imageAlt} />
+            </a>
+          </li>
+        );
+      })
+    }
+    <li></li>
+  </ul>
+</div>
+
+<style>
+  ul {
+    margin: var(--space-2xl) 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: stretch;
+    gap: var(--space-sm);
+  }
+  li {
+    list-style-type: none;
+  }
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    vertical-align: bottom;
+    margin: 0;
+  }
+  @media screen and (max-width: 768px) {
+    li {
+      max-width: 100%;
+      max-height: 50vh;
+    }
+  }
+</style>

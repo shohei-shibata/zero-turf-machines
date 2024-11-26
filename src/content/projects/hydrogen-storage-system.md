@@ -3,6 +3,7 @@ image: "../../images/hydrogen-on-crane.jpg"
 imageAltText: "Hydrogen Storage Container"
 title: "Hydrogen Storage System"
 category: "Projects"
+tags: [Engineering]
 slug: "hydrogen-storage-system"
 ---
 

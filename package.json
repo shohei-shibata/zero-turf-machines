@@ -1,37 +1,19 @@
 {
-  "name": "jkv-engineering-llc",
-  "version": "1.0.0",
-  "private": true,
-  "description": "jkv-engineering-llc",
-  "author": "Shohei",
-  "keywords": [
-    "gatsby"
-  ],
+  "name": "astro",
+  "type": "module",
+  "version": "0.0.1",
   "scripts": {
-    "develop": "gatsby develop",
-    "start": "gatsby develop",
-    "build": "gatsby build",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
   "dependencies": {
-    "@fortawesome/free-solid-svg-icons": "^6.4.0",
-    "@fortawesome/react-fontawesome": "^0.2.0",
-    "@mdx-js/react": "^2.3.0",
-    "gatsby": "^5.10.0",
-    "gatsby-adapter-netlify": "^1.0.4",
-    "gatsby-plugin-google-gtag": "^5.12.3",
-    "gatsby-plugin-image": "^3.10.0",
-    "gatsby-plugin-manifest": "^5.10.0",
-    "gatsby-plugin-mdx": "^5.10.0",
-    "gatsby-plugin-sharp": "^5.10.0",
-    "gatsby-plugin-sitemap": "^6.10.0",
-    "gatsby-remark-images": "^7.10.0",
-    "gatsby-source-filesystem": "^5.10.0",
-    "gatsby-transformer-remark": "^6.10.0",
-    "gatsby-transformer-sharp": "^5.10.0",
-    "netlify-cli": "^17.10.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "@astrojs/check": "^0.9.4",
+    "@astrojs/mdx": "^3.1.9",
+    "astro": "^4.16.13",
+    "astro-icon": "^1.1.2",
+    "typescript": "^5.6.3"
   }
 }

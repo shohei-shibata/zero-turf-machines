@@ -1,0 +1,15 @@
+name: Architectural Work
+images: [
+  {
+    image: ../../images/exergi_featured.jpg,
+    imageAlt: Hybrid UTV
+  },
+  {
+    image: ../../images/utv.jpg,
+    imageAlt: UTV Battery
+  },
+  {
+    image: ../../images/threewheeler.jpg,
+    imageAlt: Threewheeler
+  },
+]

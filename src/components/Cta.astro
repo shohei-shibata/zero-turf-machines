@@ -1,0 +1,39 @@
+<div class="cta radial-gradient-dark">
+  <div class="text-content-container cta-message">
+    <p>Adaptability is our strength.</p>
+    <p>
+      No matter large or small, simple or complex, you can count on JKV to
+      deliver a top quality result.
+    </p>
+    <p>Contact us today to discuss your project.</p>
+  </div>
+  <a href="/contact" class="btn btn-transparent-light btn-cta"
+    >Request a Quote</a
+  >
+</div>
+
+<style>
+  .cta {
+    color: var(--font-color-light);
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    max-width: var(--width-main-content);
+    margin: var(--space-3xl) auto;
+    padding: var(--space-3xl);
+    border-radius: var(--radius-md);
+    align-items: center;
+    gap: var(--space-3xl);
+  }
+  .cta-message {
+    font-size: var(--text-2xl);
+    font-family: var(--font-heading);
+  }
+  .btn-cta {
+    height: fit-content;
+  }
+  @media screen and (max-width: 768px) {
+    .cta {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

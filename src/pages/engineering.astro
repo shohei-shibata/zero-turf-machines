@@ -1,0 +1,102 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Cta from "../components/Cta.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import Gallery from "../components/Gallery.astro";
+import ProjectsGallery from "../components/ProjectsGallery.astro";
+import { getCollection } from "astro:content";
+
+const projects = await getCollection("projects", ({ data }) => {
+  return data.tags?.includes("Engineering") && data.featured;
+});
+---
+
+<Layout title="Engineering">
+  <SectionTitle title="Engineering" />
+  <div class="text-content-container">
+    <Gallery albumId="engineering" />
+    <div class="boxed-text">
+      <p>We are experts in electric drive and alternative fuel systems.</p>
+    </div>
+    <p>
+      But no matter what kind of engineering project you are about to tackle, we
+      would love to see how we can contribute to your success.
+    </p>
+    <p>
+      We are capable of designing and prototyping an EV from ground up. But
+      helping our clients achieve their goals is satisfying no matter how big or
+      small the project.
+    </p>
+    <h1 id="concept-development">Concept Development</h1>
+    <p>
+      Initial planning is crucial to the final outcome of an engineering
+      project. We understand that we are supporting your project, and helping to
+      achieve your goals. We will listen to what you are looking to accomplish,
+      then engage in discussions with you about conceptual direction and our
+      scope of work. We will produce concept selection matrices and other
+      documents are requested.
+    </p>
+    <p>
+      We are always happy to have some initial exploratory conversations as part
+      of our project quoting process. So don’t hesitate to <a href="/contact"
+        >reach out to us</a
+      > today to start that discussion.
+    </p>
+    <h1 id="product-design-and-analysis">Product Design and Analysis</h1>
+    <p>
+      Combined, we have decades of design experiences in automotive and other
+      industries.
+    </p>
+    <p>
+      From 3D CAD modeling, CAE (simulation and mathematical modeling), DFMEA,
+      BoMs, drawing packages and more, we have supported clients around the US
+      and globally, whether it’s a weeks-long or a multi-year project.
+    </p>
+    <div class="boxed-text">
+      <p>We are a full systems engineering provider.</p>
+    </div>
+    <p>
+      JKV has offered full systems engineering under one roof since it was
+      started. This means physical equipment with sensors, and feedback motion
+      control. We gained this expertise through developing control systems for
+      vehicle applications including: powertrain control, engine control,
+      thermal management system control, HVAC, and more. We save our customers
+      time and money by helping to design the physical system and then the
+      electrical design, sensor package, control loops, and HMIs. We can develop
+      control systems on embedded microprocessors or PLCs.
+    </p>
+    <h1 id="project-management">Project Management</h1>
+    <p>
+      Our goal is beyond merely handling tasks. We do everything with your goal
+      for the project in mind.
+    </p>
+    <p>
+      In fact, in an ideal engagement we would be given a portion of a project
+      for us to manage independently. That way you do not need to micro-manage
+      us (but you will be provided with project status throughout).
+    </p>
+    <h1 id="prototyping-and-testing">Prototyping and Testing</h1>
+    <p>
+      Our unique advantage is that we produce high quality designs, bills of
+      materials, CAD models, and drawings in the same building where we have
+      significant manufacturing capability. At the end of a project we deliver a
+      well organized engineering package along with a very high quality,
+      functional prototype. Often these first articles along with the
+      engineering package are extremely useful to help our customers quickly
+      bring new products to market.
+    </p>
+    <p>
+      Learn more about our fabrication capabilities <a href="/fabrication"
+        >here</a
+      >.
+    </p>
+    <h1 id="recent-projects">Featured Projects</h1>
+    <ProjectsGallery projects={projects} />
+    <div class="btn-wrapper">
+      <a class="btn btn-yellow btn-md" href="/projects#engineering"
+        >View All Projects</a
+      >
+    </div>
+  </div>
+  <Cta />
+</Layout>

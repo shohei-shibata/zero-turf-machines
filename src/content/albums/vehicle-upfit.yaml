@@ -1,0 +1,11 @@
+name: Vehicle Modifications
+images: [
+  {
+    image: ../../images/design.jpg,
+    imageAlt: CAD model for a van upfit
+  },
+  {
+    image: ../../images/van.jpg,
+    imageAlt: Van upfit result
+  },
+]

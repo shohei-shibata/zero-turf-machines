@@ -3,6 +3,8 @@ image: "../../images/rover_2.png"
 imageAltText: "Lunar Rover Demonstrator Vehicle"
 title: "Lunar Rover"
 category: "Projects"
+tags: [Engineering]
+featured: true
 slug: "lunar-rover"
 ---
 

@@ -1,0 +1,263 @@
+---
+import { Icon } from "astro-icon/components";
+
+const { pathname } = Astro.url;
+
+const navLinks = [
+  {
+    text: "Home",
+    url: "/",
+    desktop: false,
+    mobile: true,
+    icon: "nav-home",
+    currentPage: pathname === "/",
+  },
+  {
+    text: "About",
+    url: "/about",
+    desktop: true,
+    mobile: true,
+    icon: "nav-about",
+    currentPage: pathname === "/about",
+  },
+  {
+    text: "Fabrication",
+    url: "/fabrication",
+    desktop: true,
+    mobile: true,
+    icon: "nav-fabrication",
+    currentPage: pathname === "/fabrication",
+  },
+  {
+    text: "Engineering",
+    url: "/engineering",
+    desktop: true,
+    mobile: true,
+    icon: "nav-engineering",
+    currentPage: pathname === "/engineering",
+  },
+  {
+    text: "Projects",
+    url: "/projects",
+    desktop: true,
+    mobile: true,
+    icon: "nav-projects",
+    currentPage: pathname === "/projects",
+  },
+  {
+    text: "Contact",
+    url: "/contact",
+    desktop: true,
+    mobile: true,
+    icon: "nav-contact",
+    currentPage: pathname === "/contact",
+  },
+];
+const desktopNavLinks = navLinks.filter((item) => item.desktop);
+const mobileNavLinks = navLinks.filter((item) => item.mobile);
+---
+
+<nav>
+  <div class="nav-content-wrapper">
+    <div class="logo">
+      <a href="/">
+        <Icon name="logo" />
+      </a>
+    </div>
+    <ul class="nav-links-container">
+      {
+        desktopNavLinks.map((item) => (
+          <li>
+            <a
+              class="nav-link"
+              href={item.url}
+              aria-current={item.currentPage && "page"}
+            >
+              {item.text}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    <div class="mobile-nav">
+      <button id="mobile-nav-toggle-btn">
+        <Icon id="open-icon" name="menu-open" />
+        <Icon id="close-icon" name="menu-close" />
+      </button>
+      <div class="mobile-menu-container">
+        <ul>
+          {
+            mobileNavLinks.map((item) => (
+              <li>
+                <a
+                  class="nav-link mobile"
+                  href={item.url}
+                  aria-current={item.currentPage && "page"}
+                >
+                  <Icon name={item.icon} />
+                  {item.text}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<style>
+  nav {
+    box-shadow: var(--box-shadow-nav);
+  }
+  .nav-content-wrapper {
+    display: flex;
+    align-items: center;
+    font-weight: var(--medium);
+    justify-content: space-between;
+    text-transform: uppercase;
+    padding: var(--space-md) var(--space-xl);
+    max-width: var(--width-wide-content);
+    margin: auto;
+  }
+  .nav-links-container {
+    display: flex;
+    gap: var(--space-md);
+  }
+  .nav-links-container li {
+    list-style-type: none;
+  }
+  .nav-link {
+    cursor: pointer;
+    text-decoration: none;
+    height: var(--size-input);
+    display: flex;
+    color: var(--text-color-secondary);
+    align-items: center;
+    padding-left: var(--space-md);
+    padding-right: var(--space-md);
+  }
+  .nav-link:hover,
+  nav-link::selection {
+    color: var(--text-color);
+    text-decoration: underline;
+  }
+  .nav-link[aria-current="page"] {
+    color: var(--primary);
+    text-decoration: underline;
+    cursor: default;
+    pointer-events: none;
+  }
+  .logo svg {
+    width: 220px;
+    height: 75px;
+  }
+  @media screen and (max-width: 768px) {
+    .nav-content-wrapper {
+      justify-content: center;
+    }
+    .nav-links-container {
+      display: none;
+    }
+  }
+  /* MOBILE */
+  :root {
+    --mobile-nav-height: 30vh;
+  }
+  .mobile-nav {
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    transform: translateY(var(--mobile-nav-height));
+    transition: transform 0.3s;
+    z-index: 2;
+  }
+  .mobile-nav.open {
+    transform: translateY(0);
+  }
+  #mobile-nav-toggle-btn {
+    background-color: var(--background-color-light);
+    font-size: 40px;
+    padding: var(--space-lg);
+    margin: var(--space-lg);
+    box-shadow: var(--box-shadow);
+    border-radius: var(--radius-md);
+  }
+  #mobile-nav-toggle-btn:hover {
+    cursor: pointer;
+  }
+  .mobile-menu-container {
+    background-color: var(--background);
+    width: 100vw;
+    height: var(--mobile-nav-height);
+    color: var(--text-color);
+    border-radius: 10px 10px 0px 0px;
+    padding: var(--space-md);
+    box-shadow: var(--shadow);
+    padding: 30px;
+  }
+  .mobile-menu-container ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    height: 100%;
+    gap: var(--space-md);
+    padding: 0;
+  }
+  .mobile-menu-container li {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .mobile-menu-container a {
+    text-transform: uppercase;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .mobile-menu-container a svg {
+    font-size: var(--text-2xl);
+  }
+  .mobile-nav-open {
+    transform: translateY(0);
+  }
+  .nav-link.mobile {
+    font-size: var(--text-sm);
+  }
+  #close-icon {
+    display: none;
+  }
+  #close-icon.open {
+    display: block;
+  }
+  #open-icon {
+    display: block;
+  }
+  #open-icon.open {
+    display: none;
+  }
+  @media (min-width: 768px) {
+    .mobile-nav {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  const btn = document.getElementById("mobile-nav-toggle-btn");
+  const openIcon = document.getElementById("open-icon");
+  const closeIcon = document.getElementById("close-icon");
+  const nav = document.getElementsByClassName("mobile-nav");
+
+  const toggleNav = () => {
+    nav[0].classList.toggle("open");
+    openIcon?.classList.toggle("open");
+    closeIcon?.classList.toggle("open");
+  };
+  btn?.addEventListener("click", toggleNav);
+</script>

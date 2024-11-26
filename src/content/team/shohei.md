@@ -6,20 +6,6 @@ imageAltText: "Shohei Shibata"
 slug: "shohei"
 order: 6
 category: "Team"
-funFacts: [
-  {
-    q: "Cats or Dogs?",
-    a: "Dogs"
-  },
-  {
-    q: "Favorite sports team?",
-    a: "2004 Detroit Pistons"
-  },
-  {
-    q: "If I weren't so damn good at my job, I'd probably be...",
-    a: "A farmer"
-  },
-]
 ---
 
 Shohei Shibata graduated with a B.S. in Mechanical Engineering from Purdue University in 2006. Since then, he has spent much of his career in the automotive industry, designing and developing safety critical chassis and suspension components for major OEMs. The experience has trained him well in the technical know-how of structural design, while at the same time he is a curious learner that is always learning something new. But at the end of the day, he believes that good communication and projection management are almost always more important to a project's success than any technical knowledge.
