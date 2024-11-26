@@ -1,0 +1,19 @@
+.form {
+  width: 100%;
+}
+.form input,
+.form textarea {
+  width: 100%;
+  box-sizing: border-box;
+  border-width: 1px;
+  border-radius: 3px;
+}
+.label {
+  line-height: 1.5em;
+}
+.submit-button {
+  margin: 15px 0;
+}
+.submit-button:hover {
+  cursor: pointer;
+}

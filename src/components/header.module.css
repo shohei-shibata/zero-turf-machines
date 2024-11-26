@@ -1,0 +1,86 @@
+.container {
+  display: flex;
+  align-items: center;
+  position: sticky;
+  z-index: 1;
+  top: 0;
+  box-shadow: 0 7px 29px 0 hsla(240,5%,41%,.2);
+}
+
+.header {
+  display: flex;
+  width: 100%;
+  /*padding: var(--size-gap) var(--size-gutter);*/
+  padding: 10px 5vw;
+  grid-template-columns:220px 1fr min-content min-content;
+  grid-template-areas: "logo nada btnSecondary btnPrimary";
+  align-items: center;
+  background-color: var(--background);
+}
+
+.header::after {
+  grid-area: navHeader;
+  content: "";
+  display: block;
+  width: var(--space-2xl);
+  z-index: 1;
+  align-self: stretch;
+  justify-self: flex-end;
+}
+
+
+.logo {
+  display: flex;
+  grid-area: logo;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-color-secondary);
+}
+
+.logo:hover {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.logo[aria-current="page"] {
+  color: var(--primary);
+}
+
+.nav {
+  grid-area: navHeader;
+  align-self: stretch;
+  display: none;
+}
+
+.searchButton {
+  color: var(--text-color-secondary);
+  grid-area: btnSecondary;
+  width: var(--size-input);
+  height: var(--size-input);
+  display: grid;
+  place-items: center;
+}
+
+.searchButton:hover {
+  color: var(--text-color);
+}
+
+.searchButton[aria-current="page"] {
+  color: var(--primary);
+}
+
+.cartButton {
+  grid-area: btnPrimary;
+}
+
+@media (min-width: 840px) {
+  .header {
+    display: grid;
+    grid-template-areas: "logo navHeader btnSecondary btnPrimary";
+  }
+  .nav {
+    display: flex;
+  }
+}

@@ -1,0 +1,20 @@
+.team-member-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 250px;
+  text-align: center;
+  text-decoration: none;
+  color: var(--font-color-dark);
+  transition: opacity 0.1s;
+}
+.team-member-container:hover {
+  opacity: 0.9;
+}
+.image {
+  width: 225px;
+  height: 300px;
+}
+.position {
+  margin-top: 0;
+}
